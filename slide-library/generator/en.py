@@ -20,7 +20,8 @@ def N(use, adapt, tip=None):
 
 
 def divider(D, nr, name, notes):
-    D.section('%02d %s' % (nr, name.replace('\n', ' ').replace('- ', '')))
+    nr = len([n for n, _ in D.sections if not n.startswith('00')]) + 1  # numbered automatically in build order
+    D.section('%02d %s' % (nr, name.replace('-\n', '').replace('\n', ' ')))
     s = D.slide('section_name_blue', notes=notes, key='sec%02d' % nr)
     D.ph(s, 25, '%02d' % nr)
     D.ph(s, 26, name)
@@ -72,7 +73,7 @@ def s00(D):
         x = L + 0.3 + (i % 2) * 6.2; y = 4.95 + (i // 2) * 0.4
         text(s, x, y, 6.0, 0.35, [{'t': [(a + '  ', {'color': BLUE}), (b, {})]}], size=13)
 
-    s = D.slide('content', 'Contents: 16 chapters along the customer journey', 'Start here | Contents (click a chapter)', key='toc',
+    s = D.slide('content', 'Contents: 23 chapters from first meeting to account growth', 'Start here | Contents (click a chapter)', key='toc',
                 notes=N('Navigation: click a chapter to jump to it (also in slide show).', 'Filled automatically with slide numbers.'))
     s = D.slide('content', 'Storyline builder: the right slide sequence for every meeting type', 'Start here | Storylines',
                 'Slide numbers refer to this library', key='story',
@@ -173,6 +174,31 @@ def s01(D):
     pic(s, 27, IMG + 'image19.png')
     D.ph(s, 29, 'headline')
     D.drop_empty(s, keep=(20, 21, 22, 23, 24, 27, 29))
+
+    s = cs(D, 'Basics', 'Executive summary', 'execsum',
+           N('One-page summary at the start of every analysis or recommendation deck (pyramid principle).',
+             'Top box = the answer; three blocks = the supporting arguments; each with the evidence.',
+             'Write this slide first and last: it is the storyline of the whole deck.'))
+    rect(s, L, 1.5, W, 0.9, fill=BLUE, content='The answer: core message / recommendation in one or two lines', size=18, color=WHITE, anchor='m', margin=(0.3, 0.05, 0.3, 0.05))
+    cw = (W - 2 * 0.3) / 3
+    for i in range(3):
+        x = L + i * (cw + 0.3)
+        num(s, x, 2.65, i + 1, 0.45)
+        text(s, x + 0.6, 2.65, cw - 0.6, 0.5, 'Supporting argument', size=17, anchor='m')
+        hline(s, x, 3.25, cw, BLACK)
+        text(s, x, 3.4, cw, 1.6, bl(['Evidence / fact', 'Evidence / fact', 'Evidence / fact'], sa=6), size=14)
+    sowhat(s, KT, lead='Decision needed')
+
+    s = cs(D, 'Basics', 'Agenda tracker', 'agenda_tracker',
+           N('Repeat between chapters of long decks to show where you are.', 'Copy for every chapter and move the blue highlight.'),
+           title='Agenda')
+    for i in range(5):
+        y = 1.55 + i * 0.85
+        on = i == 1
+        rect(s, L, y, W, 0.72, fill=BLUE if on else LSAND)
+        text(s, L + 0.3, y, 0.8, 0.72, '%02d' % (i + 1), size=20, color=WHITE if on else BLUE, anchor='m')
+        text(s, L + 1.2, y, 8, 0.72, 'Agenda item %d' % (i + 1), size=18, color=WHITE if on else BLACK, anchor='m')
+        text(s, R - 2.3, y, 2.0, 0.72, '[00:00]', size=14, color=WHITE if on else DGRAY, anchor='m', align='r')
 
     s = cs(D, 'Basics', 'Empty slide with title', 'blank', N('Blank canvas in Körber layout for your own content.', 'Build from the building blocks in the Toolkit.'))
 

@@ -2,7 +2,7 @@
 
 ## Standard deck (English, v2.0) – recommended
 
-`Koerber_Slide_Library_2026_EN.pptx`: 130 content-neutral template slides in Körber 2025 CI (placeholders such as *Headline*, *[Name]* and *00%* instead of example content), 16 chapters, Google Material Symbols as icons and the Körber Pharma Consulting introduction (Intro v5.1) as chapter 02. Every slide has English speaker notes (USE / ADAPT / TIP). Clickable contents on slide 3, storyline builder on slide 4. Preview: `Koerber_Slide_Library_2026_EN_Preview.pdf`. Rebuild: `cd generator && python3 build_en.py` (content in `en.py`, `en2.py`, `en3.py`).
+`Koerber_Slide_Library_2026_EN.pptx`: 184 content-neutral template slides in Körber 2025 CI (placeholders such as *Headline*, *[Name]* and *00%* instead of example content), 23 chapters in three parts – **winning the project** (basics, company introduction, customer situation, buying center, solution, business case, approach, proposal, references), **delivering the project** (kick-off, analysis, processes, target picture & roadmap, validation & compliance, implementation & change, project steering, workshops) and **growing the account & toolbox** (account management, frameworks, charts, closing, appendix, toolkit). Google Material Symbols as icons; every slide has English speaker notes (USE / ADAPT / TIP). Clickable contents on slide 3, storyline builder for 12 meeting types on slide 4. Preview: `Koerber_Slide_Library_2026_EN_Preview.pdf`. Rebuild: `cd generator && python3 build_en.py` (content in `en.py` … `en4.py`).
 
 ## Deutsche Fassung mit Beispielinhalten (v1.0)
 
