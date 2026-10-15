@@ -1,5 +1,11 @@
 # Körber Slide Library 2026 – Pharma Consulting
 
+## Standard deck (English, v2.0) – recommended
+
+`Koerber_Slide_Library_2026_EN.pptx`: 130 content-neutral template slides in Körber 2025 CI (placeholders such as *Headline*, *[Name]* and *00%* instead of example content), 16 chapters, Google Material Symbols as icons and the Körber Pharma Consulting introduction (Intro v5.1) as chapter 02. Every slide has English speaker notes (USE / ADAPT / TIP). Clickable contents on slide 3, storyline builder on slide 4. Preview: `Koerber_Slide_Library_2026_EN_Preview.pdf`. Rebuild: `cd generator && python3 build_en.py` (content in `en.py`, `en2.py`, `en3.py`).
+
+## Deutsche Fassung mit Beispielinhalten (v1.0)
+
 Eine Folienbibliothek mit 150 Folien im Körber-CI für Kundentermine und Leadprojekte. Sie basiert auf dem offiziellen **Körber-2025-Master** (Layouts, Logo, Fußzeile, Klassifizierung) und ersetzt die v7-Vorlage.
 
 | Datei | Inhalt |

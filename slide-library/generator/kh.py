@@ -262,7 +262,7 @@ def disturber(s, x, y, content, d=1.97, fill=BLUE, **kw):
 SOWHAT_Y = 5.98
 
 
-def sowhat(s, txt, y=None, h=None, lead='So what'):
+def sowhat(s, txt, y=None, h=None, lead='Key takeaway'):
     """takeaway box – fixed position on every slide (content must end at 5.8)"""
     y, h = SOWHAT_Y, 0.62
     box = rect(s, L, y, W, h, fill=SAND)
@@ -778,8 +778,8 @@ def rag(s, x, y, status, d=0.2):
     return dot(s, x, y, d, c)
 
 
-def legend_rag(s, x, y, size=10):
-    for i, (st, t) in enumerate([('g', 'Im Plan'), ('y', 'Gefährdet'), ('r', 'Kritisch'), ('n', 'Nicht gestartet')]):
+def legend_rag(s, x, y, size=10, labels=('Im Plan', 'Gefährdet', 'Kritisch', 'Nicht gestartet')):
+    for i, (st, t) in enumerate(zip('gyrn', labels)):
         rag(s, x + i * 1.45, y + 0.03, st, 0.16)
         text(s, x + i * 1.45 + 0.24, y, 1.2, 0.25, t, size=size)
 
