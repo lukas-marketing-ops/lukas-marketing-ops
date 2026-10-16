@@ -65,6 +65,20 @@ Alle bereits installierten Skills mit Design-Bezug, gruppiert nach Einsatzzweck.
 
 ---
 
+## Print-Workflow: Claude Design → Canva / Adobe
+
+Es gibt **keinen eigenen Skill**, der Druckdateien in Claude Design erstellt und automatisch an Canva übergibt. Die Bausteine dafür sind aber vorhanden:
+
+| Route | Ablauf | Bewertung |
+|---|---|---|
+| **A · Claude Design → Adobe Express** | Design in Claude Design erstellen → Share-Menü „Send to Adobe Express“ → Feinschliff → Druck-PDF mit `/adobe-for-creativity:adobe-design-to-pdf` | Einzige direkte Übergabe aus Claude Design; Design bleibt editierbar |
+| **B · Claude Design → Canva (halbautomatisch)** | Design als PDF/PPTX exportieren → in Canva hochladen (Canva importiert PDF/PPTX als editierbares Design) → mit `/canva:edit-design` und `/canva:brand-check` bearbeiten → als PDF exportieren (A4/A3, Qualität „pro“) | Funktioniert, aber der Upload in Canva ist ein manueller Schritt |
+| **C · Direkt in Canva** | Brand-Template oder `generate-design` in Canva → `/canva:edit-design` → PDF-Export | Am stabilsten, wenn Brand Kit und Templates in Canva liegen |
+
+**Hinweise für den Druck:** Beschnittzugabe (Bleed) und Schnittmarken lassen sich über die Canva-Schnittstelle nicht setzen. Beim finalen Export in Canva daher „PDF (Druck)“ mit „Schnittmarken und Beschnittzugabe“ aktivieren. Das Canva-Tool `import-design-from-url` akzeptiert nur bereits öffentliche HTTPS-URLs, eine von Claude erzeugte Datei wird darüber nicht übertragen.
+
+---
+
 ## Voraussetzungen
 
 - **Canva-Skills** brauchen den verbundenen **Canva-Connector**, **Adobe-Skills** den **Adobe-for-creativity-Connector** (claude.ai → Einstellungen → Connectors).
